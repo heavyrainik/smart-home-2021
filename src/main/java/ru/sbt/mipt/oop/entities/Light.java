@@ -1,13 +1,10 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.entities;
 
-public class Light implements Actionable{
+import ru.sbt.mipt.oop.processors.Action;
+
+public class Light implements Actionable {
     private boolean isOn;
-
-    public String getId() {
-        return id;
-    }
-
-    private String id;
+    private final String id;
 
     public Light(String id, boolean isOn) {
         this.id = id;
@@ -16,6 +13,10 @@ public class Light implements Actionable{
 
     public boolean isOn() {
         return isOn;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public void setOn(boolean on) {

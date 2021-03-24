@@ -1,6 +1,10 @@
 package ru.sbt.mipt.oop;
 
+import ru.sbt.mipt.oop.entities.*;
+import ru.sbt.mipt.oop.tech.SmartHomeJsonLoader;
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -13,7 +17,7 @@ public class HomeBuilder {
         Room bedroom = createTestBedroom();
         Hall hall = createTestHall();
 
-        Collection<Room> testRooms;
+        Collection<Room> testRooms = new ArrayList<>();
 
         testRooms.add(kitchen);
         testRooms.add(bathroom);

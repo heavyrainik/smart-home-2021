@@ -1,4 +1,6 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.tech;
+
+import ru.sbt.mipt.oop.entities.SmartHome;
 
 public interface JsonLoader {
     static SmartHome readSmartHome(String source) {

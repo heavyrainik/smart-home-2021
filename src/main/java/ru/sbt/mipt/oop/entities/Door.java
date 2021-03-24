@@ -1,4 +1,6 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.entities;
+
+import ru.sbt.mipt.oop.processors.Action;
 
 public class Door implements Actionable {
     private boolean isOpen;

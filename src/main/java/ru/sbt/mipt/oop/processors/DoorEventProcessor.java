@@ -1,10 +1,14 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.processors;
 
-import static ru.sbt.mipt.oop.SensorEventType.*;
+import ru.sbt.mipt.oop.entities.Door;
+import ru.sbt.mipt.oop.entities.SmartHome;
+import ru.sbt.mipt.oop.events.SensorEvent;
 
-public class DoorEventProcessor implements EventHandler{
+import static ru.sbt.mipt.oop.events.SensorEventType.*;
+
+public class DoorEventProcessor implements EventProcessor {
     @Override
-    public void handleEvent(SmartHome smartHome, SensorEvent event) {
+    public Action handleEvent(SmartHome smartHome, SensorEvent event) {
         if (isDoorEvent(event)) {
             Action action = object -> {
                 if (! (object instanceof Door)) { return; }
@@ -17,6 +21,8 @@ public class DoorEventProcessor implements EventHandler{
             };
             smartHome.execute(action);
         }
+
+        return null;
     }
 
     private boolean isDoorEvent(SensorEvent event) {
