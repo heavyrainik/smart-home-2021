@@ -7,7 +7,7 @@ import ru.sbt.mipt.oop.alarm.Alarm;
 
 import static ru.sbt.mipt.oop.events.SensorEventType.*;
 
-public class AlarmEventProcessor implements EventProcessor{
+public class AlarmEventProcessor implements EventProcessor {
     @Override
     public Action handleEvent(SmartHome smartHome, SensorEvent event) {
         if (isAlarmEvent(event)) {

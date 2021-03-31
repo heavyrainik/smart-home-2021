@@ -1,7 +1,5 @@
 package ru.sbt.mipt.oop.alarm;
 
-import ru.sbt.mipt.oop.events.SensorEvent;
-import ru.sbt.mipt.oop.entities.SmartHome;
 import ru.sbt.mipt.oop.processors.Action;
 
 public class AlarmedState implements AlarmState{
@@ -30,7 +28,7 @@ public class AlarmedState implements AlarmState{
     }
 
     @Override
-    public Action handleEvent(SmartHome smartHome, SensorEvent event) {
-        return null;
+    public void execute(Action action) {
+        action.execute(this);
     }
 }

@@ -1,8 +1,8 @@
 package ru.sbt.mipt.oop.alarm;
 
-import ru.sbt.mipt.oop.processors.EventProcessor;
+import ru.sbt.mipt.oop.entities.Actionable;
 
-public interface AlarmState extends EventProcessor {
+public interface AlarmState extends Actionable {
     void activate(String code);
 
     void deactivate(String code);
