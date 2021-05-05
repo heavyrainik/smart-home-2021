@@ -7,8 +7,14 @@ import ru.sbt.mipt.oop.entities.SmartHome;
 import static ru.sbt.mipt.oop.events.SensorEventType.*;
 
 public class LightEventProcessor implements EventProcessor {
+    private final SmartHome smartHome;
+
+    public LightEventProcessor(SmartHome smartHome) {
+        this.smartHome = smartHome;
+    }
+
     @Override
-    public Action handleEvent(SmartHome smartHome, SensorEvent event) {
+    public void handleEvent(SensorEvent event) {
         if (isLightEvent(event)) {
             Action action = object -> {
                 if (! (object instanceof Light)) { return; }
@@ -22,8 +28,6 @@ public class LightEventProcessor implements EventProcessor {
 
             smartHome.execute(action);
         }
-
-        return null;
     }
 
     private boolean isLightEvent(SensorEvent event) {

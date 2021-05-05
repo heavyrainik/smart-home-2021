@@ -7,8 +7,14 @@ import ru.sbt.mipt.oop.events.SensorEvent;
 import static ru.sbt.mipt.oop.events.SensorEventType.*;
 
 public class DoorEventProcessor implements EventProcessor {
+    private final SmartHome smartHome;
+
+    public DoorEventProcessor(SmartHome smartHome) {
+        this.smartHome = smartHome;
+    }
+
     @Override
-    public Action handleEvent(SmartHome smartHome, SensorEvent event) {
+    public void handleEvent(SensorEvent event) {
         if (isDoorEvent(event)) {
             Action action = object -> {
                 if (! (object instanceof Door)) { return; }
@@ -21,8 +27,6 @@ public class DoorEventProcessor implements EventProcessor {
             };
             smartHome.execute(action);
         }
-
-        return null;
     }
 
     private boolean isDoorEvent(SensorEvent event) {

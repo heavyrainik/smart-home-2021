@@ -2,14 +2,18 @@ package ru.sbt.mipt.oop.alarm;
 
 import ru.sbt.mipt.oop.events.SensorEvent;
 import ru.sbt.mipt.oop.entities.SmartHome;
-import ru.sbt.mipt.oop.processors.Action;
 
 public class Alarm implements AlarmState {
     private AlarmState state;
+    private final SmartHome smartHome;
+
+    public Alarm(SmartHome smartHome) {
+        this.smartHome = smartHome;
+    }
 
     @Override
     public void activate(String code) {
-        state.activate(code);
+        state = new ActivatedState(this, code);
     }
 
     @Override
@@ -26,8 +30,14 @@ public class Alarm implements AlarmState {
         this.state = state;
     }
 
-    @Override
-    public Action handleEvent(SmartHome smartHome, SensorEvent event) {
-        return null;
+    public boolean isAlarmed() {
+        return state instanceof AlarmedState;
     }
+
+    public boolean isActivated() {
+        return state instanceof ActivatedState;
+    }
+
+    @Override
+    public void handleEvent(SensorEvent event) {}
 }

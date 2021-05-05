@@ -8,8 +8,14 @@ import ru.sbt.mipt.oop.alarm.Alarm;
 import static ru.sbt.mipt.oop.events.SensorEventType.*;
 
 public class AlarmEventProcessor implements EventProcessor{
+    private final SmartHome smartHome;
+
+    public AlarmEventProcessor(SmartHome smartHome) {
+        this.smartHome = smartHome;
+    }
+
     @Override
-    public Action handleEvent(SmartHome smartHome, SensorEvent event) {
+    public void handleEvent(SensorEvent event) {
         if (isAlarmEvent(event)) {
             Action action = object -> {
                 if (object instanceof Alarm) {
@@ -24,7 +30,6 @@ public class AlarmEventProcessor implements EventProcessor{
 
             smartHome.execute(action);
         }
-        return null;
     }
 
     private boolean isAlarmEvent(SensorEvent event){
