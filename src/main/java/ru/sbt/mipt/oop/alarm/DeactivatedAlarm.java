@@ -23,7 +23,4 @@ public class DeactivatedAlarm implements AlarmState{
     public void alarm() {
 
     }
-
-    @Override
-    public void handleEvent(SensorEvent event){}
 }

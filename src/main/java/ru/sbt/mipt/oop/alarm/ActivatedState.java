@@ -29,7 +29,4 @@ public class ActivatedState implements AlarmState{
     public void alarm() {
         alarm.setState(new AlarmedState(alarm, code));
     }
-
-    @Override
-    public void handleEvent(SensorEvent event) {}
 }

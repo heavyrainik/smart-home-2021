@@ -17,9 +17,10 @@ public class AlarmEventProcessor implements EventProcessor{
     @Override
     public void handleEvent(SensorEvent event) {
         if (isAlarmEvent(event)) {
-            Action action = object -> {
-                if (object instanceof Alarm) {
-                    Alarm signalization = (Alarm) object;
+            Action action = entity -> {
+                if (entity instanceof Alarm) {
+                    Alarm signalization = (Alarm) entity;
+
                     if (event.getType() == ALARM_ACTIVATE) {
                         signalization.activate(((AlarmEvent) event).getCode());
                     } else {

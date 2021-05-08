@@ -1,7 +1,10 @@
 package ru.sbt.mipt.oop.processors;
 
+import ru.sbt.mipt.oop.commands.CommandType;
+import ru.sbt.mipt.oop.commands.SensorCommand;
 import ru.sbt.mipt.oop.entities.*;
 import ru.sbt.mipt.oop.events.SensorEvent;
+import ru.sbt.mipt.oop.events.SensorEventType;
 
 import static ru.sbt.mipt.oop.events.SensorEventType.*;
 
@@ -14,33 +17,37 @@ public class HallEventProcessor implements EventProcessor {
 
     @Override
     public void handleEvent(SensorEvent event) {
-        if (isDoorEvent(event) && isHallDoorEvent(smartHome, event)) {
-            if (event.getType() == DOOR_CLOSED) {
-                Action action = object -> {
-                    if (! (object instanceof Light)) { return; }
-                    Light light = (Light) object;
-                    light.setOn(false);
-                };
-
-                smartHome.execute(action);
-            }
+        if (!isDoorEvent(event)) {
+            return;
         }
+
+        Action turnEveryLightOff = (lightObject) -> {
+            if (lightObject instanceof Light) {
+                Light light = (Light) lightObject;
+                light.setOn(false);
+            }
+        };
+
+        String targetId = event.getObjectId();
+
+        Action checkHallDoor = (doorObject) -> {
+            if (doorObject instanceof Door && ((Door) doorObject).getId().equals(targetId)) {
+                smartHome.execute(turnEveryLightOff);
+            }
+        };
+
+        smartHome.execute((roomObject) -> {
+            if (roomObject instanceof Room) {
+                Room room = (Room) roomObject;
+                if ("hall".equals(room.getName())) {
+                    room.execute(checkHallDoor);
+                }
+            }
+        });
     }
 
     private boolean isDoorEvent(SensorEvent event) {
         return event.getType() == DOOR_CLOSED || event.getType() == DOOR_OPEN;
     }
 
-    private boolean isHallDoorEvent(SmartHome smartHome, SensorEvent event) {
-        for (Room room : smartHome.getRooms()) {
-            for (Door door : room.getDoors()) {
-                if (door.getId().equals(event.getObjectId())) {
-                    if (room instanceof Hall) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
 }

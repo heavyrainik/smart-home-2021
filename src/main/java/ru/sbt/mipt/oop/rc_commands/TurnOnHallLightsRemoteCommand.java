@@ -4,6 +4,7 @@ import ru.sbt.mipt.oop.entities.Hall;
 import ru.sbt.mipt.oop.entities.Light;
 import ru.sbt.mipt.oop.entities.Room;
 import ru.sbt.mipt.oop.entities.SmartHome;
+import ru.sbt.mipt.oop.processors.Action;
 
 public class TurnOnHallLightsRemoteCommand extends EntityRemoteCommand{
 
@@ -13,24 +14,21 @@ public class TurnOnHallLightsRemoteCommand extends EntityRemoteCommand{
 
     @Override
     public void execute(){
-        smartHome.execute((entity -> {
-            if (entity instanceof Light){
-                Light light = (Light)entity;
-                if (isHall()){
-                    light.setOn(true);
+        Action turnLightOn = (lightObject) -> {
+            if (lightObject instanceof Light) {
+                ((Light) lightObject).setOn(true);
+            }
+        };
+
+        smartHome.execute((entity) -> {
+            if (entity instanceof Room) {
+                Room room = (Room) entity;
+
+                if ("hall".equals(room.getName())) {
+                    room.execute(turnLightOn);
                 }
             }
-        }));
-    }
-
-    private boolean isHall() {
-        for (Room room : smartHome.getRooms()) {
-            if (room instanceof Hall) {
-                return true;
-            }
-        }
-
-        return false;
+        });
     }
 }
 

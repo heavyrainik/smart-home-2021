@@ -11,13 +11,18 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class SmartHomeJsonLoader implements JsonLoader {
-    public static SmartHome readSmartHome(String source) throws IOException {
+    public SmartHome readSmartHome(String source) {
         Gson gson = new Gson();
-        String json = new String(Files.readAllBytes(Paths.get(source)));
+        String json = null;
+        try {
+            json = new String(Files.readAllBytes(Paths.get(source)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return gson.fromJson(json, SmartHome.class);
     }
 
-    public static void createJSON(SmartHome smartHome, String output) throws IOException {
+    public void createJSON(SmartHome smartHome, String output) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String jsonString = gson.toJson(smartHome);
         System.out.println(jsonString);
@@ -26,6 +31,8 @@ public class SmartHomeJsonLoader implements JsonLoader {
 
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             writer.write(jsonString);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

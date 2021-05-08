@@ -26,7 +26,4 @@ public class AlarmedState implements AlarmState{
     public void alarm() {
 
     }
-
-    @Override
-    public void handleEvent(SensorEvent event) {}
 }

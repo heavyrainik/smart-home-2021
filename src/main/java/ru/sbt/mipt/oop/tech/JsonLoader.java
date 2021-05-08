@@ -3,9 +3,7 @@ package ru.sbt.mipt.oop.tech;
 import ru.sbt.mipt.oop.entities.SmartHome;
 
 public interface JsonLoader {
-    static SmartHome readSmartHome(String source) {
-        return null;
-    }
+    SmartHome readSmartHome(String source);
 
-    static void createJSON(SmartHome smartHome, String output) {}
+    void createJSON(SmartHome smartHome, String output);
 }

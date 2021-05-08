@@ -26,7 +26,7 @@ public class HomeBuilder {
 
         SmartHome smartHome = new SmartHome(testRooms);
 
-        SmartHomeJsonLoader.createJSON(smartHome, output);
+        new SmartHomeJsonLoader().createJSON(smartHome, output);
     }
 
     private static Hall createTestHall() {
