@@ -75,7 +75,7 @@ class HallChecker
 **Нет**
 
 ```java
-package ru.sbt.mipt.oop.SmartHome;
+package ru.sbt.mipt.oop.entities.SmartHome;
 ```
 
 ### Не используйте статические методы в бизнес логике
@@ -165,13 +165,13 @@ public class Application {
 **Нет**
 
 ```java
-List<EventHandler> handlers = new HandlerCreator().constructHandlers();
+List<ru.sbt.mipt.oop.EventLoop> handlers = new HandlerCreator().constructHandlers();
 ```
 
 **Да**
 
 ```java
-List<EventHandler> handlers = Arrays.asList(new DoorEventHandler(), ...);
+List<ru.sbt.mipt.oop.EventLoop> handlers = Arrays.asList(new DoorEventHandler(), ...);
 ```
 
 См. [asList(T...)](https://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#asList(T...))
@@ -344,7 +344,7 @@ EventProcessor someEventProcessor() {
 ...
 ```
 
-Далее в бине со сторонним `SensorEventsManager`, где они все нужны, попрость `Spring` собрать все бины из конфигурации типа `EventHandler` автоматически:
+Далее в бине со сторонним `SensorEventsManager`, где они все нужны, попрость `Spring` собрать все бины из конфигурации типа `ru.sbt.mipt.oop.EventLoop` автоматически:
 
 ```java
 @Bean
