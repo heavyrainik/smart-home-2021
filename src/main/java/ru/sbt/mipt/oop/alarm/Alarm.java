@@ -4,7 +4,7 @@ import ru.sbt.mipt.oop.events.SensorEvent;
 import ru.sbt.mipt.oop.entities.SmartHome;
 import ru.sbt.mipt.oop.processors.EventProcessor;
 
-public class Alarm implements EventProcessor {
+public class Alarm {
     private AlarmState state;
     private final SmartHome smartHome;
 
@@ -36,6 +36,4 @@ public class Alarm implements EventProcessor {
         return state instanceof ActivatedState;
     }
 
-    @Override
-    public void handleEvent(SensorEvent event) {}
 }

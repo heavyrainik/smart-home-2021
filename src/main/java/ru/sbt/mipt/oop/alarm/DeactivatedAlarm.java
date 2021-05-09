@@ -1,7 +1,5 @@
 package ru.sbt.mipt.oop.alarm;
 
-import ru.sbt.mipt.oop.events.SensorEvent;
-
 public class DeactivatedAlarm implements AlarmState{
     private final Alarm alarm;
 
