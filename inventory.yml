@@ -1,0 +1,8 @@
+debian:
+  hosts:
+    194.87.107.68
+  vars:
+    domain: 194.87.107.68
+    ansible_user: mftiedu
+    ansible_password: cHONtic
+    ansible_sudo_pass: cHONtic
