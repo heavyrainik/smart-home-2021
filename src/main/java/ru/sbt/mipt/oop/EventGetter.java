@@ -4,6 +4,10 @@ import ru.sbt.mipt.oop.events.SensorEvent;
 import ru.sbt.mipt.oop.events.SensorEventType;
 
 public class EventGetter {
+	private EventGetter() {
+		throw new IllegalStateException("Utility class");
+    }
+	
     public static SensorEvent getNextSensorEvent() {
         // pretend like we're getting the events from physical world, but here we're going to just generate some random events
         if (Math.random() < 0.05) return null; // null means end of event stream

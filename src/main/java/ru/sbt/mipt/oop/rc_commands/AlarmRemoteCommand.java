@@ -10,5 +10,7 @@ public class AlarmRemoteCommand implements RemoteCommand {
     }
 
     @Override
-    public void execute() {}
+    public void execute() {
+		// Virtual method
+	}
 }

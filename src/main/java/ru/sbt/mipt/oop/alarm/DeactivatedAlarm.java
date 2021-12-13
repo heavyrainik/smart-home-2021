@@ -14,11 +14,11 @@ public class DeactivatedAlarm implements AlarmState{
 
     @Override
     public void deactivate(String code) {
-
+		//This method can't be used for deactivated alarm
     }
 
     @Override
     public void alarm() {
-
+		//This method can't be used for deactivated alarm
     }
 }

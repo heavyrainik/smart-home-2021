@@ -11,7 +11,7 @@ public class ActivatedState implements AlarmState{
 
     @Override
     public void activate(String code) {
-
+		//This method can't be used for activated alarm
     }
 
     @Override

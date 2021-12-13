@@ -8,9 +8,10 @@ public class AlarmedState implements AlarmState{
         this.alarm = alarm;
         this.code = code;
     }
+	
     @Override
     public void activate(String code) {
-
+		//This method can't be used for activated alarm
     }
 
     @Override
@@ -22,6 +23,6 @@ public class AlarmedState implements AlarmState{
 
     @Override
     public void alarm() {
-
+		//This method can't be used for activated alarm
     }
 }

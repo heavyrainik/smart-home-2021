@@ -3,7 +3,6 @@ package ru.sbt.mipt.oop.entities;
 import ru.sbt.mipt.oop.processors.Action;
 
 public class Door implements Actionable {
-    private boolean isOpen;
     private String id;
 
     public Door(String id, boolean isOpen) {
