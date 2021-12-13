@@ -1,5 +1,6 @@
 package com.coolcompany.smarthome.sample;
 
+import java.util.logging.Logger;
 import com.coolcompany.smarthome.events.SensorEventsManager;
 
 public class Sample {
