@@ -89,7 +89,7 @@ public class SmartHomeConfiguration {
 
     @Bean
     Alarm activatedAlarm(SmartHome smartHome, String alarmAccessCode) {
-        Alarm alarm = new Alarm(smartHome);
+        Alarm alarm = new Alarm();
         alarm.activate(alarmAccessCode);
         return alarm;
     }
