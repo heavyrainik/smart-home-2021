@@ -6,6 +6,6 @@ public class SmsNotifier implements Notifier {
 	
     @Override
     public void notifyOwner() {
-        LOGGER.log("Sending sms");
+        //LOGGER.log("Sending sms");
     }
 }

@@ -28,7 +28,7 @@ public class SmartHomeJsonLoader implements JsonLoader {
     public void createJSON(SmartHome smartHome, String output) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String jsonString = gson.toJson(smartHome);
-        LOGGER.log(jsonString);
+        //LOGGER.log(jsonString);
 
         Path path = Paths.get(output);
 
