@@ -7,7 +7,7 @@ public class Door implements Actionable {
 
     public Door(String id) {
         this.id = id;
-        this.isOpen = isOpen;
+        //this.isOpen = isOpen;
     }
 
     public void setOpen(boolean open) {
