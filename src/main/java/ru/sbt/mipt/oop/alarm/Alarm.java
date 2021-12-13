@@ -7,8 +7,8 @@ import ru.sbt.mipt.oop.processors.EventProcessor;
 public class Alarm {
     private AlarmState state;
 
-    public Alarm(SmartHome smartHome) {
-        this.smartHome = smartHome;
+    public Alarm() {
+        //this.smartHome = smartHome;
     }
 
     public void activate(String code) {

@@ -4,14 +4,15 @@ import ru.sbt.mipt.oop.processors.Action;
 
 public class Door implements Actionable {
     private String id;
+	private boolean isOpen;
 
-    public Door(String id) {
+    public Door(String id, boolean isOpen) {
         this.id = id;
-        //this.isOpen = isOpen;
+        this.isOpen = isOpen;
     }
 
     public void setOpen(boolean open) {
-        //isOpen = open;
+        isOpen = open;
     }
 
     public String getId() {
