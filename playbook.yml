@@ -9,10 +9,10 @@
 
     - name: "copy jar"
       copy:
-        src: /var/lib/jenkins/workspace/sobolevas/freestyle-job/target/smart-home-1.0-SNAPSHOT.jar
+        src: /var/lib/jenkins/workspace/sobolevas/freestyle/target/smart-home-1.0-SNAPSHOT.jar
         dest: sobolev/smart-home.jar
 
     - name: "copy conf file"
       copy:
-        src: /var/lib/jenkins/workspace/sobolevas/freestyle-job/smart-home-1.js
+        src: /var/lib/jenkins/workspace/sobolevas/freestyle/smart-home-1.js
         dest: sobolevas/smart-home-1.js
