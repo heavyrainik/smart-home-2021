@@ -4,7 +4,7 @@ import java.util.logging.Logger;
 import com.coolcompany.smarthome.events.SensorEventsManager;
 
 public class Sample {
-	private static final Logger LOGGER = Logger.getLogger( ClassName.class.getName() );
+	//private static final Logger LOGGER = Logger.getLogger( ClassName.class.getName() );
 
     public static void main(String[] args) {
         SensorEventsManager sensorEventsManager = new SensorEventsManager();

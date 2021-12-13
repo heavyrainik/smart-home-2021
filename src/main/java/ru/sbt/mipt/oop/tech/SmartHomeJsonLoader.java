@@ -12,7 +12,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class SmartHomeJsonLoader implements JsonLoader {
-	private static final Logger LOGGER = Logger.getLogger( ClassName.class.getName() );
+	//private static final Logger LOGGER = Logger.getLogger( ClassName.class.getName() );
 	
     public SmartHome readSmartHome(String source) {
         Gson gson = new Gson();
