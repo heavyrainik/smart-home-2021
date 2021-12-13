@@ -9,7 +9,7 @@
 
     - name: Creates directory
       file:
-        path: sobolevas
+        path: tmp/sobolevas
         state: directory
 
     - name: copy jar
