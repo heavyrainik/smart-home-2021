@@ -2,12 +2,17 @@
 - hosts: debian
   become: yes
   tasks:
-    - name: "sudo apt install java 11"
+    - name: sudo apt install java 11
       apt:
         name: openjdk-11-jdk
         state: latest
 
-    - name: "copy jar"
+    - name: Creates directory
+      file:
+        path: sobolevas
+        state: directory
+
+    - name: copy jar
       copy:
         src: /var/lib/jenkins/workspace/sobolevas/freestyle/target/smart-home-1.0-SNAPSHOT.jar
         dest: tmp/sobolevas/smart-home.jar
