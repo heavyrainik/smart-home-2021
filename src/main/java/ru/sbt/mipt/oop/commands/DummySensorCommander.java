@@ -8,6 +8,8 @@ public class DummySensorCommander implements SensorCommander {
 		throw new IllegalStateException("Utility class");
     }
 	
+	public DummySensorCommander() {}
+	
     public static void sendCommand(SensorCommand command) {
         LOGGER.info(LOGGER.getName());
     }
