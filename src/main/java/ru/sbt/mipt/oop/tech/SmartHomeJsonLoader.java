@@ -12,7 +12,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class SmartHomeJsonLoader implements JsonLoader {
-	//private static final Logger LOGGER = Logger.getLogger( ClassName.class.getName() );
 	
     public SmartHome readSmartHome(String source) {
         Gson gson = new Gson();
@@ -28,7 +27,6 @@ public class SmartHomeJsonLoader implements JsonLoader {
     public void createJSON(SmartHome smartHome, String output) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String jsonString = gson.toJson(smartHome);
-        //LOGGER.log(jsonString);
 
         Path path = Paths.get(output);
 

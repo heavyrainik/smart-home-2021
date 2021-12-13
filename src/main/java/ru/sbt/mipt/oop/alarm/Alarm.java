@@ -8,7 +8,7 @@ public class Alarm {
     private AlarmState state;
 
     public Alarm() {
-        //this.smartHome = smartHome;
+        //virtual
     }
 
     public void activate(String code) {
