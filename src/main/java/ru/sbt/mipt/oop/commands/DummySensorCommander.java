@@ -9,7 +9,7 @@ public class DummySensorCommander implements SensorCommander {
     }
 	
     public static void sendCommand(SensorCommand command) {
-		continue;
+		int a = 1;
         //LOGGER.log("Pretend we're sending command " + command);
     }
 }
