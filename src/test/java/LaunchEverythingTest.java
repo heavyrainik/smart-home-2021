@@ -1,5 +1,5 @@
 import com.coolcompany.smarthome.events.SensorEventsManager;
-import SmartHomeConfiguration;
+import ru.sbt.mipt.oop.SmartHomeConfiguration;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
